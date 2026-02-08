@@ -20,6 +20,7 @@ const chat = createAgent({
 
 // Invoke the agent and display the response
 const message = "Hello! What can you help me with?";
+
 console.log("User:", message);
 console.log("---");
 

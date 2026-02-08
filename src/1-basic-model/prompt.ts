@@ -1,4 +1,5 @@
 import 'dotenv/config';
+
 import {createAgent} from "langchain";
 import { ChatOpenAI } from "@langchain/openai";
 import { MemorySaver } from "@langchain/langgraph";
@@ -27,6 +28,7 @@ const chat = createAgent({
 
 // Invoke the agent and display the response
 const message = "I have chicken, garlic, and lemon. What can I make?";
+
 console.log("User:", message);
 console.log("---");
 

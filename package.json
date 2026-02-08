@@ -15,14 +15,15 @@
     "lint": "eslint src",
     "format:check": "prettier --check .",
     "lint:langgraph-json": "node scripts/checkLanggraphPaths.js",
-    "lint:all": "yarn lint & yarn lint:langgraph-json & yarn format:check",
-    "test:all": "yarn test && yarn test:int && yarn lint:langgraph"
+    "lint:all": "npm run lint & npm run lint:langgraph-json & npm run format:check",
+    "test:all": "npm run test && npm run test:int && npm run lint:langgraph"
   },
   "dependencies": {
     "@langchain/core": "1.1.8",
     "@langchain/langgraph": "^1.0.7",
     "@langchain/openai": "^1.2.0",
     "@langchain/tavily": "^1.2.0",
+    "dotenv": "^16.6.1",
     "langchain": "^1.2.3",
     "zod": "^4.3.6"
   },
@@ -33,7 +34,6 @@
     "@types/jest": "^29.5.0",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
-    "dotenv": "^16.6.1",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
