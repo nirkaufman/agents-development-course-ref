@@ -102,7 +102,7 @@ const model = new ChatOpenAI({
 });
 
 // when creating the agent, pass the responseFormat option
-export const chat = createAgent({
+const chat = createAgent({
   model,
   checkpointer,
   systemPrompt,

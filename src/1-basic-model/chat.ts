@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import {createAgent} from "langchain";
 import { ChatOpenAI } from "@langchain/openai";
 import { MemorySaver } from "@langchain/langgraph";
@@ -12,7 +13,20 @@ const model = new ChatOpenAI({
   timeout: 10000,
 });
 
-export const chat = createAgent({
+const chat = createAgent({
   model,
   checkpointer,
-})
+});
+
+// Invoke the agent and display the response
+const message = "Hello! What can you help me with?";
+console.log("User:", message);
+console.log("---");
+
+const response = await chat.invoke(
+  { messages: [{ role: "user", content: message }] },
+  { configurable: { thread_id: "demo-1" } }
+);
+
+const lastMessage = response.messages[response.messages.length - 1];
+console.log("Assistant:", lastMessage.content);
