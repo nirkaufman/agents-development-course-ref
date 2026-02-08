@@ -50,6 +50,54 @@ get started with `LangGraph Server` and using `LangGraph Studio`.
   langgraphjs dev
 ```
 
+## Using the CLI
+
+Run the interactive CLI to test demos:
+
+```bash
+npx tsx src/cli.ts
+```
+
+Commands:
+- `/list` - Show available demos
+- `/switch` or `/s` - Switch to a different demo
+- `/quit` or `/q` - Exit the CLI
+
+## Adding New Demos
+
+To add a new demo to the CLI, update the `DEMOS` registry in `src/cli.ts`:
+
+```typescript
+const DEMOS: Record<string, { path: string; exportName: string; name: string; description: string }> = {
+  // ... existing demos
+
+  myDemo: {
+    path: "./path/to/my-demo.js",  // Path relative to src/
+    exportName: "agent",            // The exported agent/chat variable name
+    name: "My Demo",                // Display name in CLI
+    description: "What it does",    // Short description
+  },
+};
+```
+
+Your demo file should export a LangGraph agent:
+
+```typescript
+// src/my-folder/my-demo.ts
+import { createAgent } from "langchain";
+import { ChatOpenAI } from "@langchain/openai";
+import { MemorySaver } from "@langchain/langgraph";
+
+const model = new ChatOpenAI({ model: "gpt-5.1" });
+const checkpointer = new MemorySaver();
+
+export const agent = createAgent({
+  model,
+  checkpointer,
+  // Optional: systemPrompt, responseFormat, tools, etc.
+});
+```
+
 ## Notes
 - This starter project was design to support the Agent Development training.
 - You can use this repo as a reference for your own projects.

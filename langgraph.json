@@ -1,7 +1,10 @@
  {
   "node_version": "20",
   "graphs": {
-    "agent": "./src/agent/start.ts:agent"
+    "start": "./src/start/start.ts:agent",
+    "chat": "./src/1-basic-model/chat.ts:chat",
+    "prompt": "./src/1-basic-model/prompt.ts:chat",
+    "structure": "./src/1-basic-model/structure.ts:chat"
   },
   "env": ".env",
   "dependencies": ["."],
