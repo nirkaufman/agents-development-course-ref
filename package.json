@@ -19,10 +19,12 @@
     "test:all": "npm run test && npm run test:int && npm run lint:langgraph"
   },
   "dependencies": {
-    "@langchain/core": "1.1.8",
+    "@langchain/core": "^1.1.16",
     "@langchain/langgraph": "^1.0.7",
+    "@langchain/mcp-adapters": "^1.1.2",
     "@langchain/openai": "^1.2.0",
     "@langchain/tavily": "^1.2.0",
+    "@modelcontextprotocol/sdk": "^1.12.0",
     "dotenv": "^16.6.1",
     "langchain": "^1.2.3",
     "zod": "^4.3.6"
