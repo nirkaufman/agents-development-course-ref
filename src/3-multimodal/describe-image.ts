@@ -10,24 +10,28 @@ const model = new ChatOpenAI({
   maxTokens: 500,
 });
 
-// Read and encode image to Base64
-const imagePath = path.join(import.meta.dirname, 'assets', 'sample.jpg');
-const imageData = fs.readFileSync(imagePath);
-const base64Image = imageData.toString('base64');
+// Export model for potential reuse
+export { model };
 
-// Create multimodal message with text and image content blocks
-const message = new HumanMessage({
-  content: [
-    { type: "text", text: "Describe what you see in this image in detail." },
-    {
-      type: "image",
-      source_type: "base64",
-      data: base64Image,
-      mime_type: "image/jpeg",
-    },
-  ],
-});
+// Demo invocation - only runs when executed directly via CLI
+// Run with: npx tsx src/3-multimodal/describe-image.ts
+if (process.argv[1]?.includes('describe-image.ts')) {
+  const imagePath = path.join(import.meta.dirname, 'assets', 'sample.jpg');
+  const imageData = fs.readFileSync(imagePath);
+  const base64Image = imageData.toString('base64');
 
-// Invoke the model and display the response
-const response = await model.invoke([message]);
-console.log(response.content);
+  const message = new HumanMessage({
+    content: [
+      { type: "text", text: "Describe what you see in this image in detail." },
+      {
+        type: "image",
+        source_type: "base64",
+        data: base64Image,
+        mime_type: "image/jpeg",
+      },
+    ],
+  });
+
+  const response = await model.invoke([message]);
+  console.log(response.content);
+}

@@ -19,23 +19,26 @@ const systemPrompt = `
 const checkpointer = new MemorySaver();
 
 // Create the agent with tools
-const chat = createAgent({
+export const chat = createAgent({
   model,
   checkpointer,
   systemPrompt,
   tools: [],
 });
 
-// Invoke the agent and display the response
-const message = "I have chicken, garlic, and lemon. What can I make?";
+// Demo invocation - only runs when executed directly via CLI
+// Run with: npx tsx src/2-tools/simple-search.ts
+if (process.argv[1]?.includes('simple-search.ts')) {
+  const message = "I have chicken, garlic, and lemon. What can I make?";
 
-console.log("User:", message);
-console.log("---");
+  console.log("User:", message);
+  console.log("---");
 
-const response = await chat.invoke(
-  { messages: [{ role: "user", content: message }] },
-  { configurable: { thread_id: "demo-1" } }
-);
+  const response = await chat.invoke(
+    { messages: [{ role: "user", content: message }] },
+    { configurable: { thread_id: "demo-1" } }
+  );
 
-const lastMessage = response.messages[response.messages.length - 1];
-console.log("Chef:", lastMessage.content);
+  const lastMessage = response.messages[response.messages.length - 1];
+  console.log("Chef:", lastMessage.content);
+}

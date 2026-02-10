@@ -102,22 +102,24 @@ const model = new ChatOpenAI({
 });
 
 // when creating the agent, pass the responseFormat option
-const chat = createAgent({
+export const chat = createAgent({
   model,
   checkpointer,
   systemPrompt,
   responseFormat: RecipeSchema,
-})
+});
 
+// Demo invocation - only runs when executed directly via CLI
+// Run with: npx tsx src/1-basic-model/structure.ts
+if (process.argv[1]?.includes('structure.ts')) {
+  const result = await chat.invoke({
+    messages: [
+      {
+        role: "user",
+        content: "I only have eggs and cheese",
+      },
+    ],
+  }, { configurable: { thread_id: "1" } });
 
-// test with `npx tsx src/1-basic-model/structure.ts`
-const result = await chat.invoke({
-  messages: [
-    {
-      role: "user",
-      content: "I only have eggs and cheese",
-    },
-  ],
-}, { configurable: { thread_id: "1" } });
-
-console.log(result.structuredResponse);
+  console.log(result.structuredResponse);
+}

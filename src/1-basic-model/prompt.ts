@@ -20,22 +20,25 @@ const systemPrompt = `
   recipes based on ingredients they provide.
 `
 
-const chat = createAgent({
+export const chat = createAgent({
   model,
   checkpointer,
   systemPrompt,
 });
 
-// Invoke the agent and display the response
-const message = "I have chicken, garlic, and lemon. What can I make?";
+// Demo invocation - only runs when executed directly via CLI
+// Run with: npx tsx src/1-basic-model/prompt.ts
+if (process.argv[1]?.includes('prompt.ts')) {
+  const message = "I have chicken, garlic, and lemon. What can I make?";
 
-console.log("User:", message);
-console.log("---");
+  console.log("User:", message);
+  console.log("---");
 
-const response = await chat.invoke(
-  { messages: [{ role: "user", content: message }] },
-  { configurable: { thread_id: "demo-1" } }
-);
+  const response = await chat.invoke(
+    { messages: [{ role: "user", content: message }] },
+    { configurable: { thread_id: "demo-1" } }
+  );
 
-const lastMessage = response.messages[response.messages.length - 1];
-console.log("Chef:", lastMessage.content);
+  const lastMessage = response.messages[response.messages.length - 1];
+  console.log("Chef:", lastMessage.content);
+}

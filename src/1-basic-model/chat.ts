@@ -13,21 +13,24 @@ const model = new ChatOpenAI({
   timeout: 10000,
 });
 
-const chat = createAgent({
+export const chat = createAgent({
   model,
   checkpointer,
 });
 
-// Invoke the agent and display the response
-const message = "Hello! What can you help me with?";
+// Demo invocation - only runs when executed directly via CLI
+// Run with: npx tsx src/1-basic-model/chat.ts
+if (process.argv[1]?.includes('chat.ts')) {
+  const message = "Hello! What can you help me with?";
 
-console.log("User:", message);
-console.log("---");
+  console.log("User:", message);
+  console.log("---");
 
-const response = await chat.invoke(
-  { messages: [{ role: "user", content: message }] },
-  { configurable: { thread_id: "demo-1" } }
-);
+  const response = await chat.invoke(
+    { messages: [{ role: "user", content: message }] },
+    { configurable: { thread_id: "demo-1" } }
+  );
 
-const lastMessage = response.messages[response.messages.length - 1];
-console.log("Assistant:", lastMessage.content);
+  const lastMessage = response.messages[response.messages.length - 1];
+  console.log("Assistant:", lastMessage.content);
+}

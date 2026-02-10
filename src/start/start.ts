@@ -11,4 +11,4 @@ const model = new ChatOpenAI({
 export const agent = createAgent({
   model,
   checkpointer,
-})
+});
