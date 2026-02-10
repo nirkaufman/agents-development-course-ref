@@ -7,7 +7,9 @@
    "structure": "./dist/src/1-basic-model/structure.js:chat",
    "leftover-meal": "./dist/src/4-leftover-meal-agent/leftover-meal-agent.js:agent",
    "concert-booking": "./dist/src/5-mcp/concert-client.js:agent",
-   "travel-agent": "./dist/src/5-mcp/travel-agent.js:agent"
+   "travel-agent": "./dist/src/5-mcp/travel-agent.js:agent",
+   "context-demo": "./dist/src/6-context/context-demo.js:agent",
+   "state-demo": "./dist/src/7-state/state-demo.js:agent"
  },
  "env": ".env",
  "dependencies": ["."],

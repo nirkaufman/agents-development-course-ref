@@ -35,7 +35,7 @@ export const agent = createAgent({
   model: "gpt-4o",
   tools,
   checkpointer,
-  systemPrompt,
+  systemPrompt
 });
 
 // Demo invocation - only runs when executed directly via CLI
