@@ -9,7 +9,10 @@
    "concert-booking": "./dist/src/5-mcp/concert-client.js:agent",
    "travel-agent": "./dist/src/5-mcp/travel-agent.js:agent",
    "context-demo": "./dist/src/6-context/context-demo.js:agent",
-   "state-demo": "./dist/src/7-state/state-demo.js:agent"
+   "state-demo": "./dist/src/7-state/state-demo.js:agent",
+   "store-demo": "./dist/src/8-store/store-demo.js:agent",
+   "subagent-demo": "./dist/src/9-multi-agent/subagent-demo.js:agent",
+   "personal-assistant": "./dist/src/9-multi-agent/personal-assistant/personal-assistant.js:agent"
  },
  "env": ".env",
  "dependencies": ["."],
