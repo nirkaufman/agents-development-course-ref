@@ -2,6 +2,8 @@ import 'dotenv/config';
 import {ChatOpenAI} from "@langchain/openai";
 import {createAgent} from "langchain";
 import {MemorySaver} from "@langchain/langgraph";
+import { TavilySearch } from "@langchain/tavily";
+
 
 const model = new ChatOpenAI({
   model: "gpt-5.1",
@@ -18,12 +20,16 @@ const systemPrompt = `
 
 const checkpointer = new MemorySaver();
 
+const webSearch = new TavilySearch({
+  maxResults: 3,
+});
+
 // Create the agent with tools
 export const chat = createAgent({
   model,
   checkpointer,
   systemPrompt,
-  tools: [],
+  tools: [webSearch],
 });
 
 // Demo invocation - only runs when executed directly via CLI

@@ -5,6 +5,8 @@
    "chat": "./dist/src/1-basic-model/chat.js:chat",
    "prompt": "./dist/src/1-basic-model/prompt.js:chat",
    "structure": "./dist/src/1-basic-model/structure.js:chat",
+   "simple-search": "./dist/src/2-tools/simple-search.js:chat",
+   "recipe-agent": "./dist/src/2-tools/agent.js:chat",
    "leftover-meal": "./dist/src/4-leftover-meal-agent/leftover-meal-agent.js:agent",
    "concert-booking": "./dist/src/5-mcp/concert-client.js:agent",
    "travel-agent": "./dist/src/5-mcp/travel-agent.js:agent",

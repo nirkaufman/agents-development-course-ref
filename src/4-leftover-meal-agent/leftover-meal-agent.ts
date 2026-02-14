@@ -54,10 +54,10 @@ if (process.argv[1]?.includes('leftover-meal-agent')) {
     content: [
       { type: "text", text: "Here's what I have in my fridge. What can I make?" },
       {
-        type: "image",
-        source_type: "base64",
-        data: base64Image,
-        mime_type: "image/jpeg",
+        type: "image_url",
+        image_url: {
+          url: `data:image/jpeg;base64,${base64Image}`,
+        },
       },
     ],
   });
