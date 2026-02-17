@@ -1,7 +1,6 @@
 import "dotenv/config";
 import { MultiServerMCPClient } from "@langchain/mcp-adapters";
 import { createAgent } from "langchain";
-import { MemorySaver } from "@langchain/langgraph";
 import { HumanMessage } from "@langchain/core/messages";
 
 const systemPrompt = `
@@ -29,12 +28,12 @@ console.log(tools);
 
 
 // Create agent with MCP tools and checkpointer for LangGraph Studio
-const checkpointer = new MemorySaver();
+// const checkpointer = new MemorySaver();
 
 export const agent = createAgent({
   model: "gpt-4o",
   tools,
-  checkpointer,
+  // checkpointer,
   systemPrompt
 });
 
