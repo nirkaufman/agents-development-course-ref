@@ -295,6 +295,35 @@
         "Add thin tomato slices, herbs, or leftover cooked vegetables on top of the cheese before flipping for extra flavor.",
         "Spread the bread with a little mustard, mayonnaise, or hot sauce before adding it to the pan for a flavor boost."
       ]
+    },
+    {
+      "name": "Refreshing Mango Cucumber Chili-Lime Salad",
+      "whyThisWorks": "The sweetness of ripe mango, the cool crunch of cucumber, and a bright chili-lime dressing create a quick, vibrant salad that’s incredibly refreshing and needs very few extra ingredients.",
+      "additionalIngredients": [
+        "lime or lemon",
+        "fresh chili or chili flakes",
+        "fresh herbs (mint or cilantro) - optional"
+      ],
+      "prepTime": "10 min",
+      "cookTime": "0 min",
+      "difficulty": "Easy",
+      "instructions": [
+        "Peel the mango and cut the flesh into small cubes or thin slices, catching any juices in the bowl.",
+        "Wash the cucumber. If the skin is thick or waxy, peel it; otherwise you can leave the peel on for extra crunch. Slice into half-moons or small cubes.",
+        "In a small bowl, mix together 1–2 tablespoons lime or lemon juice, a pinch of salt, a small pinch of sugar (optional, if your mango isn’t very sweet), and a pinch of chili flakes or very finely chopped fresh chili.",
+        "Taste the dressing and adjust: more lime for brightness, more salt to make the flavors pop, more chili for heat.",
+        "Pour the dressing over the mango and cucumber and toss gently to coat everything without crushing the fruit.",
+        "If you have them, tear a few mint or cilantro leaves and scatter over the top just before serving.",
+        "Serve immediately for maximum crunch, or chill for 10–15 minutes to let the flavors mingle."
+      ],
+      "chefTips": [
+        "If your cucumber is very seedy or watery, scoop out the seeds with a spoon before slicing so the salad doesn’t get diluted.",
+        "Very firm, just-ripe mango works best here; if it’s extremely soft, cut larger pieces so they don’t turn to mush when tossing."
+      ],
+      "variations": [
+        "Add a handful of roasted peanuts or cashews for crunch and protein, plus a drizzle of soy sauce for a more savory twist.",
+        "Thinly slice some red onion and add it to the salad for a sharper, more complex flavor."
+      ]
     }
   ]
 }

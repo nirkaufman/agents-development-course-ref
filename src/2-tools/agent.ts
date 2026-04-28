@@ -1,13 +1,10 @@
 import 'dotenv/config';
 import {createAgent} from "langchain";
 import {ChatOpenAI} from "@langchain/openai";
-import {MemorySaver} from "@langchain/langgraph";
 import {systemPrompt} from "./promps/system-prompt.js";
 import {searchRecipeDatabase} from "./tools/serach-recipe.js";
 import {saveRecipeToDatabase} from "./tools/save-recipe.js";
 import {RecipeSchema} from "./schemas/recipe.schema.js";
-
-const checkpointer = new MemorySaver();
 
 // Instantiate the model
 const model = new ChatOpenAI({
@@ -15,13 +12,11 @@ const model = new ChatOpenAI({
   temperature: 0.5,
   maxTokens: 1500,
   maxRetries: 3,
-  timeout: 15000,
 });
 
 // Create the agent with tools
 export const chat = createAgent({
   model,
-  checkpointer,
   systemPrompt,
   tools: [searchRecipeDatabase, saveRecipeToDatabase],
   responseFormat: RecipeSchema,
@@ -30,7 +25,7 @@ export const chat = createAgent({
 // Demo invocation - only runs when executed directly via CLI
 // Run with: npx tsx src/2-tools/agent.ts
 if (process.argv[1]?.includes('agent.ts')) {
-  const message = "I have chicken, garlic, and lemon. What can I make?";
+  const message = "I have mango and cucumber. What can I make?";
 
   console.log("User:", message);
   console.log("---");

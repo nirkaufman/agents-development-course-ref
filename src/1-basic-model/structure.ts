@@ -98,7 +98,6 @@ const model = new ChatOpenAI({
   temperature: 0.5,
   maxTokens: 1000,
   maxRetries: 3,
-  timeout: 10000,
 });
 
 // when creating the agent, pass the responseFormat option
